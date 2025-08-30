@@ -1,0 +1,6 @@
+curl -X POST "http://127.0.0.1:8000/scan" -F "video=@short.mp4" -o findings.json
+
+curl -X POST "http://127.0.0.1:8000/redact" \
+  -F "video=@short.mp4" \
+  -F "findings_json=$(cat findings.json)" \
+  --output redacted.mp4
